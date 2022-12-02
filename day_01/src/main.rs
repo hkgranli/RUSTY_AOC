@@ -1,15 +1,5 @@
-use std::{
-    fs::File,
-    io::{BufRead, BufReader},
-};
-
-fn input_to_vec(filename: &str) -> Vec<String> {
-    let file = File::open(filename).expect("no such file");
-    let buf = BufReader::new(file);
-    buf.lines()
-        .map(|l| l.expect("Could not parse line"))
-        .collect()
-}
+extern crate vec_from_file;
+use vec_from_file::input_to_vec;
 
 fn calc_elf_cal(input: Vec<String>) -> Vec<i64> {
     let mut cal_count: Vec<i64>  = Vec::new();

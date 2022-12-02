@@ -1,7 +1,7 @@
-use std::{
-    fs::File,
-    io::{BufRead, BufReader},
-};
+extern crate vec_from_file;
+use vec_from_file::input_to_vec;
+
+
 
 fn main() {
     let input_data = input_to_vec("input");
@@ -109,12 +109,4 @@ fn calc_strategy_two(opponent: String, outcome: String) -> i32{
 
     return outcome_score + selection_score;
 
-}
-
-fn input_to_vec(filename: &str) -> Vec<String> {
-    let file = File::open(filename).expect("no such file");
-    let buf = BufReader::new(file);
-    buf.lines()
-        .map(|l| l.expect("Could not parse line"))
-        .collect()
 }

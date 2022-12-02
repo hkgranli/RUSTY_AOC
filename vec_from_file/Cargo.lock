@@ -3,12 +3,5 @@
 version = 3
 
 [[package]]
-name = "day_01"
-version = "0.1.0"
-dependencies = [
- "vec_from_file",
-]
-
-[[package]]
 name = "vec_from_file"
 version = "0.1.0"
