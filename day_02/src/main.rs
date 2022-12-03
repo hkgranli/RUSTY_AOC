@@ -1,32 +1,22 @@
 extern crate vec_from_file;
 use vec_from_file::input_to_vec;
 
-
-
 fn main() {
     let input_data = input_to_vec("input");
-    
     task_one(&input_data);
     task_two(&input_data);
-
 }
 
 fn task_one(input: &Vec<String>){
     let mut score: i32 = 0;
-
     for line in input.iter(){
         let line_vec: Vec<&str> = line.split(" ").collect();
         score += calc_strategy_one(line_vec[0].to_string(), line_vec[1].to_string());
     }
-
     println!("total score: {}", score);
-
 }
 
 fn calc_strategy_one(opponent: String, player: String) -> i32 {
-    // a = rock, b = paper, c = scissor
-    // x = rock, y = paper, z = scissor
-
     let outcome : i32;
     let selection_score: i32 = match player.as_str() {
         "X" => 1,
@@ -58,7 +48,7 @@ fn calc_strategy_one(opponent: String, player: String) -> i32 {
         };
 
     }
-    return selection_score + outcome;
+    selection_score + outcome
     
 }
 
@@ -73,7 +63,6 @@ fn task_two(input: &Vec<String>){
 }
 
 fn calc_strategy_two(opponent: String, outcome: String) -> i32{
-    // X => need to lose, Y => need to draw, Z => need to win
 
     let selection_score : i32;
     let outcome_score: i32 = match outcome.as_str(){
@@ -82,7 +71,6 @@ fn calc_strategy_two(opponent: String, outcome: String) -> i32{
         "Z" => 6,
         _ => 0
     };
-    // a = rock, b = paper, c = scissor
 
     if opponent.eq("A"){
         selection_score = match outcome_score{
@@ -107,6 +95,6 @@ fn calc_strategy_two(opponent: String, outcome: String) -> i32{
         };
     }
 
-    return outcome_score + selection_score;
+    outcome_score + selection_score
 
 }
