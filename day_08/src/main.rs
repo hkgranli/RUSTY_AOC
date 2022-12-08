@@ -161,7 +161,6 @@ fn create_grid(input: &Vec<String>) -> Vec<Vec<i8>>{
             );
         }
         if !line_vec.is_empty(){
-            //println!("{:?}", line_vec);
             out.push(line_vec);
         }
     }
